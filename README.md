@@ -1,2 +1,2 @@
 # ServiceLogger
-A microservice logging service
+A logging service for microservices
