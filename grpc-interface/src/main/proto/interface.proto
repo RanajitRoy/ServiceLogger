@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package logger;
+
+service Logger {
+    rpc log(LogMsg) returns (Ack);
+}
+
+service LogQuery {
+    rpc logsInPeriod(LogQueryArgs) returns (LogMsgs);
+}
+
+message LogQueryArgs {
+    int64 start_ts_ms = 1;
+    optional int64 stop_ts_ms = 2;
+    optional string service = 3;
+}
+
+message Ack {
+    bool success = 1;
+}
+
+message LogMsg {
+    enum LOG_LEVEL{
+        INFO = 0;
+        DEBUG = 1;
+        WARNING = 2;
+        ERROR = 3;
+        CRITICAL = 4;  
+    }
+    int64 ts_ms = 1;
+    LOG_LEVEL level = 2;
+    string service = 3;
+    string message = 4;
+}
+
+message LogMsgs {
+    repeated LogMsg logs = 1;
+}
