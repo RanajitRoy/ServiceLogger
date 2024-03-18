@@ -1,8 +1,7 @@
-package roy.ranajit.logger;
+package roy.ranajit.logging;
 
 import java.time.Instant;
 
-import org.springframework.stereotype.Component;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -11,7 +10,6 @@ import logger.Interface.Ack;
 import logger.Interface.LogMsg;
 import logger.Interface.LogMsg.LOG_LEVEL;
 
-@Component
 public class Logger {
     ManagedChannel channel;
     LoggerGrpc.LoggerBlockingStub loggerBlockingStub;

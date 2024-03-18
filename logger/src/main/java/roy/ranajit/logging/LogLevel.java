@@ -1,4 +1,4 @@
-package roy.ranajit.logger;
+package roy.ranajit.logging;
 
 public class LogLevel {
     public int INFO = 0;
