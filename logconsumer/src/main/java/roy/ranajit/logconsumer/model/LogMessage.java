@@ -1,5 +1,7 @@
 package roy.ranajit.logconsumer.model;
 
+import java.sql.Timestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,5 +17,5 @@ public class LogMessage {
     private String message;
     private String service;
     private int logLevel;
-    private long timeStamp;
+    private Timestamp timeStamp;
 }

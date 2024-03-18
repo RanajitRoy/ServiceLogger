@@ -1,5 +1,8 @@
 package roy.ranajit.logconsumer;
 
+import java.sql.Timestamp;
+import java.time.Instant;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import io.grpc.stub.StreamObserver;
@@ -21,7 +24,7 @@ public class LogConsumerService extends LoggerGrpc.LoggerImplBase {
         msg.setMessage(request.getMessage());
         msg.setService(request.getService());
         msg.setLogLevel(request.getLevelValue());
-        msg.setTimeStamp(request.getTsMs());
+        msg.setTimeStamp(Timestamp.from(Instant.ofEpochMilli(request.getTsMs())));
 
         repo.save(msg);
 
